@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafkan Aku</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #f7cac9, #92a8d1);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .heart {
+            font-size: 3rem;
+            color: #ff6f61;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        button {
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #ff4b47;
+            transform: scale(1.1);
+        }
+        .flowers {
+            position: absolute;
+            top: -50px;
+            width: 100%;
+            pointer-events: none;
+        }
+        .flower {
+            position: absolute;
+            top: 0;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0);
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flowers" id="flowers"></div>
+    <div class="container">
+        <h1>Maafin Aku yaa </h1>
+        <p>Aku tahu aku salah hehehe. jangam ngambek lagii yaaa.</p>
+        <div class="heart">❤</div>
+        <button onclick="showMessage()">clik donggg</button>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert("Aku minta maap yaaaa dedee jan ngambek lagii okeeyy janjii ga bikin dedee ngambek lagi. ❤");
+        }
+
+        // Generate falling flowers
+        const flowersContainer = document.getElementById('flowers');
+        for (let i = 0; i < 30; i++) {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.style.left = Math.random() * 100 + '%';
+            flower.style.width = Math.random() * 20 + 10 + 'px';
+            flower.style.height = flower.style.width;
+            flower.style.animationDuration = Math.random() * 5 + 5 + 's';
+            flower.style.background = 'radial-gradient(circle, #ff6f61, transparent)';
+            flowersContainer.appendChild(flower);
+        }
+    </script>
+</body>
+</html>
